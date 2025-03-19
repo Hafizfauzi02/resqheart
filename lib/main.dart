@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/bottomnav.dart';
+import 'package:resqheart/pages/emergencycall/emergencycall.dart';
 import 'package:resqheart/pages/home.dart';
+import 'package:resqheart/pages/lifestyle/exercise/briskwalk.dart';
+import 'package:resqheart/pages/lifestyle/lifestyle.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Bottomnav(),
     );
   }
 }
