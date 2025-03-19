@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'details2.dart'; // Import the Details1 page
+import '../../details2.dart'; // Import the Details1 page
 class Details1 extends StatefulWidget {
   const Details1({super.key});
 
