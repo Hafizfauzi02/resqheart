@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/userprofile.dart';
 
 
 class Home extends StatefulWidget {
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
                   ),
                   child: GestureDetector(
                     onTap: (){
-                      //Navigate to userprofile
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Userprofile()));
                     },
                     child: CircleAvatar(
                       radius: 32,

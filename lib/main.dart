@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/authentication/login.dart';
+import 'package:resqheart/pages/authentication/signup.dart';
 import 'package:resqheart/pages/bottomnav.dart';
 import 'package:resqheart/pages/emergencycall/emergencycall.dart';
 import 'package:resqheart/pages/home.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Bottomnav(),
+      home: Login(),
     );
   }
 }
