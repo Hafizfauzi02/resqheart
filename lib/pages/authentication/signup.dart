@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/details/details1.dart';
 class Signup extends StatefulWidget {
   const Signup({super.key});
 
@@ -68,11 +69,17 @@ class _SignupState extends State<Signup> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Details1()),
+                  );
+                  },
                   child: const Text(
                     "Sign Up",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
+                  
                 ),
               ),
               const SizedBox(height: 20),
