@@ -23,7 +23,7 @@ class _MainexerciseState extends State<Mainexercise> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Lifestyle()));
+                    Navigator.pop(context);
                   },
                   child: Icon(Icons.arrow_back_ios)),
                 SizedBox(width: 70,),
