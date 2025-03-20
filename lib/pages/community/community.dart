@@ -6,9 +6,11 @@ class CommunityScreen extends StatefulWidget {
 }
 
 class _CommunityScreenState extends State<CommunityScreen> {
-  String selectedFilter = "All"; // Default selected filter
-  Map<int, bool> likedPosts = {}; // Tracks liked posts (Post ID → Liked/Not)
-  Map<int, int> likeCounts = {}; // Tracks like counts (Post ID → Like Count)
+  String selectedFilter = "All";
+  Map<int, bool> likedPosts = {};
+  Map<int, int> likeCounts = {};
+  Map<int, List<String>> postComments = {};
+  TextEditingController commentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context); // Navigates back
-          },
+          onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           "COMMUNITY AND SUPPORT",
@@ -42,9 +42,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 children: [
                   CircleAvatar(
                     radius: 24,
-                    backgroundImage: AssetImage(
-                      'assets/hafiz.png',
-                    ), // Replace with real image
+                    backgroundImage: AssetImage('assets/hafiz.png'),
                   ),
                   SizedBox(width: 10),
                   Column(
@@ -66,15 +64,11 @@ class _CommunityScreenState extends State<CommunityScreen> {
                   Spacer(),
                   IconButton(
                     icon: Icon(Icons.edit, color: Color(0xFFEA4335)),
-                    onPressed: () {
-                      // Edit profile action
-                    },
+                    onPressed: () {},
                   ),
                   IconButton(
                     icon: Icon(Icons.notifications, color: Color(0xFFEA4335)),
-                    onPressed: () {
-                      // Notification action
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),
@@ -117,28 +111,25 @@ class _CommunityScreenState extends State<CommunityScreen> {
 
               // List of Posts
               _buildPostCard(
-                postId: 1,
-                name: "Saidathul Fatiha",
-                timeAgo: "5 min ago",
-                content:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                hasImages: true,
+                1,
+                "Saidathul Fatiha",
+                "5 min ago",
+                "Lorem ipsum dolor sit amet.",
+                true,
               ),
               _buildPostCard(
-                postId: 2,
-                name: "Hafiz Fauzi",
-                timeAgo: "10 min ago",
-                content:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                hasImages: false,
+                2,
+                "Hafiz Fauzi",
+                "10 min ago",
+                "Lorem ipsum dolor sit amet.",
+                false,
               ),
               _buildPostCard(
-                postId: 3,
-                name: "Shaf Jeffery",
-                timeAgo: "15 min ago",
-                content:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                hasImages: false,
+                3,
+                "Shaf Jeffery",
+                "15 min ago",
+                "Lorem ipsum dolor sit amet.",
+                false,
               ),
             ],
           ),
@@ -147,10 +138,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
 
       // Floating Action Button
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFEA4335), // Red color
-        onPressed: () {
-          // Add new post action
-        },
+        backgroundColor: Color(0xFFEA4335),
+        onPressed: () {},
         child: Icon(Icons.add, color: Colors.white, size: 28),
       ),
     );
@@ -160,11 +149,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget _buildFilterButton(String title) {
     bool isSelected = selectedFilter == title;
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedFilter = title;
-        });
-      },
+      onTap: () => setState(() => selectedFilter = title),
       child: Container(
         width: 105,
         height: 45,
@@ -186,19 +171,19 @@ class _CommunityScreenState extends State<CommunityScreen> {
     );
   }
 
-  // Post Card Widget with Like Feature
-  Widget _buildPostCard({
-    required int postId,
-    required String name,
-    required String timeAgo,
-    required String content,
-    required bool hasImages,
-  }) {
+  // Post Card Widget
+  Widget _buildPostCard(
+    int postId,
+    String name,
+    String timeAgo,
+    String content,
+    bool hasImages,
+  ) {
     bool isLiked = likedPosts[postId] ?? false;
     int likeCount = likeCounts[postId] ?? 0;
+    List<String> comments = postComments[postId] ?? [];
 
     return Card(
-      color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: EdgeInsets.symmetric(vertical: 8),
       elevation: 1,
@@ -207,7 +192,6 @@ class _CommunityScreenState extends State<CommunityScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // User Info & Time
             Row(
               children: [
                 CircleAvatar(
@@ -232,27 +216,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
               ],
             ),
             SizedBox(height: 8),
-
-            // Post Content
             Text(content, style: TextStyle(fontSize: 14, color: Colors.black)),
+            if (hasImages) Container(height: 80, color: Colors.grey[300]),
             SizedBox(height: 8),
-
-            // Images (if available)
-            if (hasImages)
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(height: 80, color: Colors.grey[300]),
-                  ),
-                  SizedBox(width: 4),
-                  Expanded(
-                    child: Container(height: 80, color: Colors.grey[300]),
-                  ),
-                ],
-              ),
-            SizedBox(height: 8),
-
-            // Like & Comment Icons
             Row(
               children: [
                 IconButton(
@@ -260,13 +226,12 @@ class _CommunityScreenState extends State<CommunityScreen> {
                     isLiked ? Icons.favorite : Icons.favorite_border,
                     color: isLiked ? Colors.red : Colors.black,
                   ),
-                  onPressed: () {
-                    setState(() {
-                      likedPosts[postId] = !isLiked;
-                      likeCounts[postId] =
-                          isLiked ? likeCount - 1 : likeCount + 1;
-                    });
-                  },
+                  onPressed:
+                      () => setState(() {
+                        likedPosts[postId] = !isLiked;
+                        likeCounts[postId] =
+                            isLiked ? likeCount - 1 : likeCount + 1;
+                      }),
                 ),
                 Text(
                   likeCount.toString(),
@@ -274,16 +239,95 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 ),
                 SizedBox(width: 10),
                 IconButton(
-                  icon: Icon(Icons.chat_bubble_outline, color: Colors.black),
-                  onPressed: () {
-                    // Comment action
-                  },
+                  icon: Row(
+                    children: [
+                      Icon(Icons.chat_bubble_outline, color: Colors.black),
+                      SizedBox(width: 4),
+                      Text(
+                        comments.length.toString(),
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ],
+                  ),
+                  onPressed: () => _showCommentDialog(postId),
                 ),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  // Comment Dialog
+  void _showCommentDialog(int postId) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            List<String> comments = postComments[postId] ?? [];
+
+            return Padding(
+              padding: MediaQuery.of(context).viewInsets,
+              child: Container(
+                height: 400,
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Comments",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.close),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: ListView(
+                        children:
+                            comments
+                                .map(
+                                  (comment) => ListTile(title: Text(comment)),
+                                )
+                                .toList(),
+                      ),
+                    ),
+                    TextField(
+                      controller: commentController,
+                      decoration: InputDecoration(
+                        hintText: "Write a comment...",
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.send, color: Colors.red),
+                          onPressed: () {
+                            setState(
+                              () => comments.add(commentController.text),
+                            );
+                            postComments[postId] = comments;
+                            commentController.clear();
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }
