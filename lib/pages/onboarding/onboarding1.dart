@@ -2,14 +2,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class OnboardingScreen extends StatefulWidget {
+// 🔹 Splash Screen (Shows for 2 Seconds)
+class SplashScreen extends StatefulWidget {
   @override
-  _OnboardingScreenState createState() => _OnboardingScreenState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
-  bool _showSplash = true;
-
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
@@ -22,235 +21,307 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
 
-    // Show splash screen for 2 seconds, then switch to onboarding
+    // Navigate to FeatureIntroScreen after 2 seconds
     Timer(Duration(seconds: 2), () {
-      setState(() {
-        _showSplash = false;
-      });
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => FeatureIntroScreen()),
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _showSplash ? _buildSplashScreen() : _buildOnboardingScreen(),
-    );
-  }
-
-  // Splash Screen (Shows for 2 seconds)
-  Widget _buildSplashScreen() {
-    return Center(
-      child: Image.asset(
-        "assets/logo.png", // Replace with your actual logo image
-        width: 150,
-        height: 150,
-      ),
-    );
-  }
-
-  // Onboarding Screen (After 2 Seconds)
-  Widget _buildOnboardingScreen() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Colors.white, Colors.pink.shade50, Colors.pink.shade100],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.pink.shade50,
+              Colors.pink.shade100,
+            ], // ✅ Same background as onboarding
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Spacer(),
-
-          // Big Pink Heart
-          Icon(Icons.favorite, color: Colors.pinkAccent, size: 120),
-
-          SizedBox(height: 20),
-
-          // Title: "RESQHEART"
-          Text(
-            "RESQHEART",
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: Colors.redAccent,
-            ),
+        child: Center(
+          child: Icon(
+            Icons.favorite, // ✅ Same logo as in "LET'S START" page
+            color: Colors.pinkAccent,
+            size: 120,
           ),
-
-          SizedBox(height: 10),
-
-          // Description
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Text(
-              "Don't stress with the disease. \nWe'll guide you for the better lifestyle!",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: Colors.black54),
-            ),
-          ),
-
-          Spacer(),
-
-          // "LET'S START" Button
-          Padding(
-            padding: EdgeInsets.only(bottom: 40),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-              ),
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => FeatureIntroScreen()),
-                );
-              },
-              child: Text(
-                "LET'S START",
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
 }
 
-// 3️⃣ Feature Introduction Screens (PageView)
+// 🔹 Feature Introduction Screens (PageView)
 class FeatureIntroScreen extends StatefulWidget {
+  final int initialPage;
+  FeatureIntroScreen({
+    this.initialPage = 0,
+  }); // Default to first page if not specified
+
   @override
   _FeatureIntroScreenState createState() => _FeatureIntroScreenState();
 }
 
 class _FeatureIntroScreenState extends State<FeatureIntroScreen> {
-  final PageController _pageController = PageController();
+  late PageController _pageController;
   int _currentIndex = 0;
 
   final List<Map<String, dynamic>> featurePages = [
     {
-      "image": "assets/heart_monitor.png", // Replace with actual image path
+      "image": "assets/tracking icon.png",
       "title": "HEART HEALTH MONITORING & AI ANALYTICS",
     },
     {
-      "image": "assets/emergency_call.png",
+      "image": "assets/emergency_icon.png",
       "title": "EMERGENCY RESPONSE & AI ALERTS",
     },
     {
-      "image": "assets/chatbot.png",
+      "image": "assets/chatbot_icon.png",
       "title": "SHARE, LEARN AND CONNECT THRU COMMUNITY & AI CHATBOT",
     },
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: widget.initialPage);
+    _currentIndex = widget.initialPage;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
-              itemCount: featurePages.length,
-              itemBuilder: (context, index) {
-                return _buildPage(
-                  featurePages[index]["image"],
-                  featurePages[index]["title"],
-                );
-              },
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.pink.shade50,
+              Colors.pink.shade100,
+            ], // Matches Let's Start Page
           ),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                itemCount: featurePages.length,
+                itemBuilder: (context, index) {
+                  return _buildPage(
+                    featurePages[index]["image"],
+                    featurePages[index]["title"],
+                  );
+                },
+              ),
+            ),
 
-          // Pagination Dots & Navigation Buttons
-          Padding(
-            padding: const EdgeInsets.only(bottom: 40),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                // Skip Button
-                TextButton(
-                  onPressed: () {
-                    // Navigate to main app
-                  },
-                  child: Text("SKIP", style: TextStyle(color: Colors.grey)),
-                ),
+            // Pagination Dots & Navigation Buttons
+            Padding(
+              padding: const EdgeInsets.only(bottom: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  // Skip Button
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LetsStartScreen(),
+                        ),
+                      );
+                    },
+                    child: Text("SKIP", style: TextStyle(color: Colors.grey)),
+                  ),
 
-                // Dots Indicator
-                Row(
-                  children: List.generate(
-                    featurePages.length,
-                    (index) => Container(
-                      margin: EdgeInsets.symmetric(horizontal: 4),
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color:
-                            _currentIndex == index ? Colors.black : Colors.grey,
+                  // Dots Indicator
+                  Row(
+                    children: List.generate(
+                      featurePages.length,
+                      (index) => Container(
+                        margin: EdgeInsets.symmetric(horizontal: 4),
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              _currentIndex == index
+                                  ? Colors.black
+                                  : Colors.grey,
+                        ),
                       ),
                     ),
                   ),
-                ),
 
-                // Next Button
-                TextButton(
-                  onPressed: () {
-                    if (_currentIndex < featurePages.length - 1) {
-                      _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    } else {
-                      // Navigate to main app
-                    }
-                  },
-                  child: Text("NEXT", style: TextStyle(color: Colors.black)),
-                ),
-              ],
+                  // Next Button
+                  TextButton(
+                    onPressed: () {
+                      if (_currentIndex < featurePages.length - 1) {
+                        _pageController.nextPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      } else {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LetsStartScreen(),
+                          ),
+                        );
+                      }
+                    },
+                    child: Text(
+                      _currentIndex == featurePages.length - 1
+                          ? "FINISH"
+                          : "NEXT",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildPage(String imagePath, String title) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Colors.white, Colors.amber.shade50],
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(imagePath, height: 150, width: 150),
-          SizedBox(height: 40),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(imagePath, height: 300, width: 300), // Increased image size
+        SizedBox(height: 40),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ),
-        ],
+        ),
+      ],
+    );
+  }
+}
+
+// 🔹 "Let's Start" Page
+class LetsStartScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.pink.shade50,
+              Colors.pink.shade100,
+            ], // Same as FeatureIntroScreen
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Back Arrow at Top Left
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.only(top: 50, left: 20),
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.black, size: 30),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => FeatureIntroScreen(
+                              initialPage: 2,
+                            ), // Back to last feature page
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+
+            Spacer(),
+
+            // Big Pink Heart
+            Icon(Icons.favorite, color: Colors.pinkAccent, size: 120),
+
+            SizedBox(height: 20),
+
+            // Title: "RESQHEART"
+            Text(
+              "RESQHEART",
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.redAccent,
+              ),
+            ),
+
+            SizedBox(height: 10),
+
+            // Description
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Text(
+                "Don't stress with the disease. \nWe'll guide you for the better lifestyle!",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, color: Colors.black54),
+              ),
+            ),
+
+            Spacer(),
+
+            // "LET'S START" Button
+            Padding(
+              padding: EdgeInsets.only(bottom: 40),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                ),
+                onPressed: () {
+                  // Navigate to main app
+                },
+                child: Text(
+                  "LET'S START",
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

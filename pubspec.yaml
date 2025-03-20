@@ -60,6 +60,9 @@ flutter:
   
   assets:
      - assets/hafiz.png
+     - assets/tracking icon.png
+     - assets/emergency_icon.png
+     - assets/chatbot_icon.png
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
