@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/settings.dart';
 import 'package:resqheart/pages/userprofile.dart';
 
 
@@ -53,32 +54,12 @@ class _HomeState extends State<Home> {
                     Text("Welcome to ResQHeart", style: TextStyle(color: Colors.black87, fontSize: 17, fontWeight: FontWeight.w500),)
                   ],
                 ),
-                SizedBox(width: 80,),
-                Container(
-                  padding: EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 6,
-                        offset: Offset(0, 4)
-                      )
-                    ]
-                  ),
-                  child: GestureDetector(
-                    onTap: (){
-
-                    },
-                    child: Column(
-                      children: [
-                        Icon(Icons.smart_toy_rounded, color: Colors.amber.shade500,),
-                        Text("ChatBot", style: TextStyle(fontSize: 10),)
-                      ],
-                    ),
-                  ),
-                )
+                SizedBox(width: 90,),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Settings()));
+                  },
+                  child: Icon(Icons.settings, color: Colors.black,))
               ],
             ),
             
