@@ -45,6 +45,7 @@ class _Details3State extends State<Details3> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Padding(
           padding: EdgeInsets.only(left: screenWidth * 0.05, top: screenHeight * 0.02),
