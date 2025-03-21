@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:resqheart/pages/details/details2.dart';
 
-import '../../details2.dart'; // Import the Details1 page
 class Details1 extends StatefulWidget {
   const Details1({super.key});
 
@@ -42,7 +42,10 @@ class _Details1State extends State<Details1> {
         ),
       ),
 
-      body: Column(
+      body: SingleChildScrollView(
+        child: Container(
+          height: screenHeight,
+          child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
@@ -82,6 +85,7 @@ class _Details1State extends State<Details1> {
                     },
                     childDelegate: ListWheelChildBuilderDelegate(
                       builder: (context, index) {
+                            if (index < 0 || index >= 101) return const SizedBox(); 
                         return Center(
                           child: Text(
                             index.toString(),
@@ -154,6 +158,8 @@ class _Details1State extends State<Details1> {
        ),
         ],
 
+          ),
+        ),
       ),
     );
   }

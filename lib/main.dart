@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:resqheart/pages/authentication/login.dart';
 import 'package:resqheart/pages/authentication/signup.dart';
 import 'package:resqheart/pages/bottomnav.dart';
+import 'package:resqheart/pages/details/details1.dart';
 import 'package:resqheart/pages/emergencycall/emergencycall.dart';
 import 'package:resqheart/pages/home.dart';
 import 'package:resqheart/pages/lifestyle/exercise/briskwalk.dart';
