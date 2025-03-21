@@ -3,6 +3,7 @@ import 'package:resqheart/pages/chatbot/chatbot.dart';
 import 'package:resqheart/pages/community/community.dart';
 import 'package:resqheart/pages/onboarding/onboarding1.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
+      
       home: SplashScreen(),
+
     );
   }
 }
