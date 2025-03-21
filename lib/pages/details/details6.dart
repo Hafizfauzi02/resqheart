@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 
-import 'details2.dart'; // Import the Details1 page
+import 'details2.dart';
 class Details6 extends StatefulWidget {
   const Details6({super.key});
 
@@ -90,11 +91,11 @@ class _Details6State extends State<Details6> {
             // Navigate to Details1 page when button is clicked
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Details2()), // Fixed here
+              MaterialPageRoute(builder: (context) => Bottomnav()), // Fixed here
             );
           },
          child: Text(
-      'NEXT STEPS',
+      'GET STARTED',
       style: GoogleFonts.bebasNeue(
         fontSize: 25, // Adjust size if needed
         color: Colors.white,
