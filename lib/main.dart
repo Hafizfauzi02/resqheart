@@ -4,6 +4,7 @@ import 'package:resqheart/pages/emergencycall/emergencycall.dart';
 import 'package:resqheart/pages/home.dart';
 import 'package:resqheart/pages/lifestyle/exercise/briskwalk.dart';
 import 'package:resqheart/pages/lifestyle/lifestyle.dart';
+import 'package:resqheart/pages/onboarding/onboarding1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Bottomnav(),
+      home: SplashScreen(),
     );
   }
 }

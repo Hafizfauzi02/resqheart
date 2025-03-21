@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/chatbot/chatbot.dart';
 import 'package:resqheart/pages/settings.dart';
 import 'package:resqheart/pages/userprofile.dart';
 
@@ -250,6 +251,22 @@ class _HomeState extends State<Home> {
         ),
       ),
      
+      floatingActionButton: GestureDetector(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChatbotScreen()), 
     );
+  },
+  child: Image.asset(
+    "assets/chatbot_icon.png", 
+    width: 50, 
+    height: 50,
+  ),
+),
+    );
+  
   }
+
 }
+

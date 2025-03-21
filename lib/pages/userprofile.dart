@@ -81,3 +81,61 @@ class _UserprofileState extends State<Userprofile> {
     );
   }
 }
+
+Widget _buildTextField(String label, String value, {bool enabled = true}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: TextField(
+        controller: TextEditingController(text: value),
+        enabled: enabled,
+        decoration: InputDecoration(
+          labelText: label,
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+  }
+    Widget _buildWeightHeightRow() {
+    return Row(
+      children: [
+        Expanded(
+          child: _buildTextField("Weight", "55"),
+        ),
+        SizedBox(width: 10),
+        ToggleButtons(
+          isSelected: [false, true],
+          children: [Text("LBS"), Text("KG")],
+          onPressed: (index) {},
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          child: _buildTextField("Height", "170"),
+        ),
+        SizedBox(width: 10),
+        ToggleButtons(
+          isSelected: [false, true],
+          children: [Text("FEET"), Text("CM")],
+          onPressed: (index) {},
+        ),
+      ],
+    );
+  }
+    Widget _buildGenderDropdown() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          labelText: "Gender",
+          border: OutlineInputBorder(),
+        ),
+        value: "Male",
+        items: ["Male", "Female", "Other"].map((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {},
+      ),
+    );
+  }

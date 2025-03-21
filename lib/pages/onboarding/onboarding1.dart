@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:resqheart/pages/authentication/login.dart';
 
 // 🔹 Splash Screen (Shows for 2 Seconds)
 class SplashScreen extends StatefulWidget {
@@ -312,7 +313,7 @@ class LetsStartScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 ),
                 onPressed: () {
-                  // Navigate to main app
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
                 },
                 child: Text(
                   "LET'S START",
