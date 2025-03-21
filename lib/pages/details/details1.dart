@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resqheart/pages/details/details2.dart';
 
+import '../../details2.dart'; // Import the Details1 page
 class Details1 extends StatefulWidget {
   const Details1({super.key});
 
@@ -30,6 +31,7 @@ class _Details1State extends State<Details1> {
      double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+        backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Padding(
           padding:  EdgeInsets.only(left: screenWidth * 0.05, top: screenHeight *0.02),

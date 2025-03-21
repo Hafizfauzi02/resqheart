@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'details6.dart';
+import 'package:resqheart/pages/heartrate/heartRate2.dart';
+import 'package:resqheart/pages/heartrate/heartrate1.dart';
+import 'package:resqheart/pages/heartrate/highHeartHome.dart';
+import 'package:resqheart/pages/heartrate/highRate.dart';
+import 'package:resqheart/pages/heartrate/lowHeartHome.dart';
+import 'package:resqheart/pages/heartrate/lowRate.dart';
 
-class Details5 extends StatefulWidget {
-  const Details5({super.key});
+class Heartrate3 extends StatefulWidget {
+  const Heartrate3({super.key});
 
   @override
-  State<Details5> createState() => _Details5State();
+  State<Heartrate3> createState() => _HeartRate3State();
 }
 
-class _Details5State extends State<Details5> {
+class _HeartRate3State extends State<Heartrate3> {
   int selectedIndex = 0; // 0 = Finger, 1 = Face, 2 = Device
   final List<String> toggleLabels = ["Finger-Based", "Face-Based", "Device-Based"];
   
@@ -101,17 +106,12 @@ class _Details5State extends State<Details5> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.09),
-              child: Text(
-                'Step 5 of 5',
-                style: GoogleFonts.dmSans(fontSize: 20, fontWeight: FontWeight.normal),
-              ),
-            ),
+          
+            
             Padding(
               padding: EdgeInsets.only(top: screenHeight * 0.01, left: screenWidth * 0.09),
               child: Text(
-                'YOUR FIRST TEST',
+                'HEART RATE ANALYSIS',
                 style: GoogleFonts.bebasNeue(fontSize: 40),
               ),
             ),
@@ -259,11 +259,11 @@ class _Details5State extends State<Details5> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Details6()),
+                      MaterialPageRoute(builder: (context) => const Heartrate()),
                     );
                   },
                   child: Text(
-                    'NEXT STEPS',
+                    'DONE',
                     style: GoogleFonts.bebasNeue(fontSize: 25, color: Colors.white),
                   ),
                 ),
@@ -353,13 +353,11 @@ class _Details5State extends State<Details5> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Details6()),
-                    );
+                   DateTime selectedDate = DateTime(2025, 3, 16); // Keep this if needed
+                    _showEmergencyDialog2(context);
                   },
                   child: Text(
-                    'NEXT STEPS',
+                    'CONTINUE',
                     style: GoogleFonts.bebasNeue(fontSize: 25, color: Colors.white),
                   ),
                 ),
@@ -416,14 +414,12 @@ class _Details5State extends State<Details5> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Details6()),
-                    );
+                   onPressed: () {
+                    DateTime selectedDate = DateTime(2025, 3, 16); // Keep this if needed
+                    _showEmergencyDialog(context);
                   },
                   child: Text(
-                    'NEXT STEPS',
+                    'DONE',
                     style: GoogleFonts.bebasNeue(fontSize: 25, color: Colors.white),
                   ),
                 ),
@@ -435,5 +431,94 @@ class _Details5State extends State<Details5> {
         return Container();
     }
   }
+}
+
+void _showEmergencyDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false, // Prevents closing by tapping outside
+    builder: (BuildContext dialogContext) {
+      return AlertDialog(
+        title: Text("Emergency Alert"),
+        content: Text("The application wants to call the ambulance due to the user's resting heart rate is consistently high"),
+        actions: [
+          // IGNORE Button: Dismiss dialog and navigate without calling
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext, rootNavigator: true).pop(); // Close the dialog
+              
+              // Navigate to HighHeartHome
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Highhearthome()),
+              );
+            },
+            child: Text("IGNORE", style: TextStyle(color: Colors.red)),
+          ),
+          
+          // CALL Button: Proceed with ambulance call
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext, rootNavigator: true).pop(); // Close the dialog
+
+              // Delay navigation slightly for a smooth transition
+              Future.delayed(Duration(milliseconds: 300), () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Highhearthome()),
+                );
+              });
+            },
+            child: Text("CALL", style: TextStyle(color: Colors.blue)),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+
+void _showEmergencyDialog2(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false, // Prevents closing by tapping outside
+    builder: (BuildContext dialogContext) {
+      return AlertDialog(
+        title: Text("Emergency Alert"),
+        content: Text("The application wants to call the ambulance due to the user's resting heart rate is consistently low"),
+        actions: [
+          // IGNORE Button: Dismiss dialog and navigate without calling
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext, rootNavigator: true).pop(); // Close the dialog
+              
+              // Navigate to HighHeartHome
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Lowhearthome()),
+              );
+            },
+            child: Text("IGNORE", style: TextStyle(color: Colors.red)),
+          ),
+          
+          // CALL Button: Proceed with ambulance call
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext, rootNavigator: true).pop(); // Close the dialog
+
+              // Delay navigation slightly for a smooth transition
+              Future.delayed(Duration(milliseconds: 300), () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Highhearthome()),
+                );
+              });
+            },
+            child: Text("CALL", style: TextStyle(color: Colors.blue)),
+          ),
+        ],
+      );
+    },
+  );
 }
 

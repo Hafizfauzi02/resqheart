@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:resqheart/pages/settings.dart';
 import 'package:resqheart/pages/userprofile.dart';
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -250,7 +249,7 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      
+     
     );
   }
 }
