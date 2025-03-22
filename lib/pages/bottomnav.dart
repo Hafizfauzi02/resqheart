@@ -4,7 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:resqheart/pages/community/community.dart';
 import 'package:resqheart/pages/emergencycall/emergencycall.dart';
-import 'package:resqheart/pages/heartrate/heratrate.dart';
+import 'package:resqheart/pages/heartrate/heartrate1.dart';
 import 'package:resqheart/pages/home.dart';
 import 'package:resqheart/pages/lifestyle/lifestyle.dart';
 
@@ -22,7 +22,7 @@ class _BottomnavState extends State<Bottomnav> {
   late Widget currentPage;
   late Home homepage;
   late Community community;
-  late Heratrate heratrate;
+  late Heartrate heratrate;
   late Call call;
   late Lifestyle lifestyle;
 
@@ -30,7 +30,7 @@ class _BottomnavState extends State<Bottomnav> {
   void initState(){
     homepage = Home();
     community = Community();
-    heratrate = Heratrate();
+    heratrate = Heartrate();
     call = Call();
     lifestyle = Lifestyle();
     pages =[homepage, community, heratrate, call, lifestyle];
