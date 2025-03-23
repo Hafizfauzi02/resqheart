@@ -28,5 +28,5 @@ Unlike existing heart health apps, ResQHeart provides:
 ---
 
 📺 **Watch the Demo Video:** [Click Here]("")
-📺 **Slide Presentation:** [Click Here]("https://www.canva.com/design/DAGiiHP5W0g/okMKSFFL_2sSAkrTbB2TFQ/edit")
+📺 **Slide Presentation:** [Click Here](https://www.canva.com/design/DAGiiHP5W0g/okMKSFFL_2sSAkrTbB2TFQ/edit)
 📺 **Video Product Pitching:** [Click Here]("")
