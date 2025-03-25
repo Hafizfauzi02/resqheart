@@ -59,7 +59,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 child: Row(
                   children: [
                     Text(text),
-                    SizedBox(width: 5),
+                    SizedBox(width: 1),
                     Icon(
                       Icons.arrow_outward,
                       size: 16,
@@ -81,12 +81,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         elevation: 0,
         title: Row(
           children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
+            
             Image.asset(
               "assets/chatbot_icon.png", // Ensure this asset exists
               height: 24,
@@ -157,8 +152,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 SizedBox(width: 10),
                 FloatingActionButton(
                   onPressed: () => sendMessage(messageController.text),
-                  child: Icon(Icons.send),
-                  backgroundColor: Colors.redAccent,
+                  child: Icon(Icons.send,color: Colors.white,),
+                  backgroundColor:  const Color(0xFF364FF5),
                 ),
               ],
             ),

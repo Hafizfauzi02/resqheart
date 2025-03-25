@@ -5,6 +5,7 @@ import 'package:resqheart/pages/heartrate/heartrate1.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:resqheart/pages/heartrate/heartrate2.dart';
 import 'package:resqheart/pages/heartrate/highHeartHome.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 
 class Highrate extends StatefulWidget {
   const Highrate({super.key});
@@ -38,7 +39,7 @@ class _HighRate extends State<Highrate> {
          onPressed: () {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => Highhearthome()), // Navigate to Heartrate1
+      MaterialPageRoute(builder: (context) => Bottomnav()), // Navigate to Heartrate1
     );
   },
 ),

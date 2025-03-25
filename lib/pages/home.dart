@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 import 'package:resqheart/pages/chatbot/chatbot.dart';
 import 'package:resqheart/pages/settings.dart';
 import 'package:resqheart/pages/userprofile.dart';
@@ -13,8 +14,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: Container(
+      body:SingleChildScrollView( 
+      child:Container(
         padding: EdgeInsets.only(top: 80, left: 20, right: 20),
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration( color: Colors.white
@@ -46,7 +51,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                SizedBox(width: 16,),
+                SizedBox(width: screenWidth*0.001,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -54,7 +59,7 @@ class _HomeState extends State<Home> {
                     Text("Welcome to ResQHeart", style: TextStyle(color: Colors.black87, fontSize: 17, fontWeight: FontWeight.w500),)
                   ],
                 ),
-                SizedBox(width: 90,),
+                SizedBox(width: screenWidth*0.2,),
                 GestureDetector(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> Settings()));
@@ -84,14 +89,22 @@ class _HomeState extends State<Home> {
                   '0 min ago',
                   style: TextStyle(color: Colors.white70, fontSize: 12),
                 ),
-                Text(
-                  'More details',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                GestureDetector(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Bottomnav(initialIndex: 2,),) // Navigate to DetailsPage
+    );
+  },
+  child: Text(
+    'More details',
+    style: TextStyle(
+      color: Colors.white,
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+),
               ],
             ),
             SizedBox(height: 8),
@@ -162,8 +175,16 @@ class _HomeState extends State<Home> {
                 Text("Community Activities", style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),),
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
-                  child: Text("See all", style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),),
+                  child: 
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context, 
+                      MaterialPageRoute(builder: (context) =>Bottomnav(initialIndex: 1,) ));
+                    } ,
+                    child: Text("See all", style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),),
                 )
+                ),
               ],
             ),
             SizedBox(height: 10,),
@@ -175,6 +196,7 @@ class _HomeState extends State<Home> {
               ),
               child: Stack(
                 children: [
+                  
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.asset("assets/image1.jpg", height: 200, width: MediaQuery.of(context).size.width,fit: BoxFit.cover,)),
@@ -217,7 +239,8 @@ class _HomeState extends State<Home> {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.asset("assets/image3.avif", height: 200, width: MediaQuery.of(context).size.width,fit: BoxFit.cover,)),
+                   child: Image.asset("assets/image3.jpg", height: 200, width: MediaQuery.of(context).size.width,fit: BoxFit.cover,)
+                  ),
                   Container(
                     margin: EdgeInsets.only(left: 10, top: 10),
                     width: 50,
@@ -249,6 +272,7 @@ class _HomeState extends State<Home> {
             
           ],
         ),
+      ),
       ),
      
       floatingActionButton: GestureDetector(

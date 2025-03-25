@@ -27,7 +27,7 @@ class _UserprofileState extends State<Userprofile> {
                   },
                   child: Icon(Icons.arrow_back_ios, color: Colors.black,)),
                 SizedBox(width: 110,),
-                Text("Edit Prtofile", style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),),
+                Text("Edit Profile", style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),),
               ],
             ),
             SizedBox(height: 10,),

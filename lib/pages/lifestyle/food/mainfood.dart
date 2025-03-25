@@ -15,7 +15,8 @@ class _MainfoodState extends State<Mainfood> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body:SingleChildScrollView(
+       child: Container(
         padding: const EdgeInsets.only(top: 80, right: 20, left: 20),
         child: Column(
           children: [
@@ -231,6 +232,7 @@ class _MainfoodState extends State<Mainfood> {
             
           ],
         ),
+      )
       )
     );
   }

@@ -29,7 +29,7 @@ class _Details6State extends State<Details6> {
      double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: Colors.white,
+        
       appBar: AppBar(
         leading: Padding(
           padding:  EdgeInsets.only(left: screenWidth * 0.05, top: screenHeight *0.02),
@@ -65,8 +65,8 @@ class _Details6State extends State<Details6> {
         child: ClipOval(
           child: Image.asset(
             'assets/heart.jpeg', // Change to your actual asset path
-            width: screenWidth * 0.8,  // Ensure it's a square to maintain circular shape
-            height: screenWidth * 0.8, 
+            width: screenWidth * 0.7,  // Ensure it's a square to maintain circular shape
+            height: screenWidth * 0.7, 
             fit: BoxFit.cover, // Ensures it fills the circular frame properly
           ),
         ),

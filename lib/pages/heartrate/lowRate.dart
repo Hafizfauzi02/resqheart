@@ -303,7 +303,7 @@ class DateDetailsPage2 extends StatelessWidget {
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(233, 241, 70, 70),
+                  color:Color.fromARGB(233, 255, 164, 27),
                 ),
                 child: Column(
                   children: [

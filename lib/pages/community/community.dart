@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class CommunityScreen extends StatefulWidget {
@@ -17,20 +18,13 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
+        automaticallyImplyLeading: false,
         title: Text(
           "COMMUNITY AND SUPPORT",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+         style: GoogleFonts.kronaOne(fontSize: 18, color: Colors.black),
         ),
-        centerTitle: false,
+        
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -64,11 +58,11 @@ class _CommunityScreenState extends State<CommunityScreen> {
                   ),
                   Spacer(),
                   IconButton(
-                    icon: Icon(Icons.edit, color: Color(0xFFEA4335)),
+                    icon: Icon(Icons.edit, color: Colors. red),
                     onPressed: () {},
                   ),
                   IconButton(
-                    icon: Icon(Icons.notifications, color: Color(0xFFEA4335)),
+                    icon: Icon(Icons.notifications, color:  Colors.red),
                     onPressed: () {},
                   ),
                 ],
@@ -139,7 +133,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
 
       // Floating Action Button
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFEA4335),
+        backgroundColor:  const Color(0xFF364FF5),
         onPressed: () {},
         child: Icon(Icons.add, color: Colors.white, size: 28),
       ),

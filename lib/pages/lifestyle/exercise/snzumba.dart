@@ -44,7 +44,7 @@ class _SnzumbaState extends State<Snzumba> {
               children: [
                 Text("Exercise 1/3", style: TextStyle(color: Colors.grey)),
                 SizedBox(height: 5),
-                Text("Brisk Walk", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                Text("Zumba", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 SizedBox(height: 20),
 
                 // Circular Timer

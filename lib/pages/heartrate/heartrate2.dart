@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 import 'package:resqheart/pages/heartrate/heartrate1.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
@@ -34,7 +35,7 @@ class _HeartrateState2 extends State<Heartrate2> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
          onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> Heartrate()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> Bottomnav(initialIndex: 2,)));
   },
 ),
         title: Text(
@@ -240,7 +241,7 @@ class DateDetailsPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
@@ -293,7 +294,7 @@ class DateDetailsPage extends StatelessWidget {
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(233, 241, 70, 70),
+                  color: Color.fromARGB(233, 65, 182, 44),
                 ),
                 child: Column(
                   children: [
@@ -395,7 +396,7 @@ class DateDetailsPage extends StatelessWidget {
               height: 80,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.blue, width: 6),
+                border: Border.all(color: Colors.green, width: 6),
                 color: Colors.white,
               ),
               child: Center(

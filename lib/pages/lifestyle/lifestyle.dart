@@ -15,7 +15,7 @@ class _LifestyleState extends State<Lifestyle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body:SingleChildScrollView( child:  Container(
         padding: const EdgeInsets.only(top: 80, right: 20, left: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -135,6 +135,7 @@ class _LifestyleState extends State<Lifestyle> {
       ),
           ],
         ),
+      ),
       ),
     );
   }

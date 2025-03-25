@@ -21,7 +21,7 @@ class _SncyclingState extends State<Sncycling> {
             height: 250,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/ex1.png'), // Replace with actual image
+                image: AssetImage('assets/ex3.png'), // Replace with actual image
                 fit: BoxFit.cover,
               ),
             ),
@@ -44,7 +44,7 @@ class _SncyclingState extends State<Sncycling> {
               children: [
                 Text("Exercise 1/3", style: TextStyle(color: Colors.grey)),
                 SizedBox(height: 5),
-                Text("Brisk Walk", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                Text("Cycling", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 SizedBox(height: 20),
 
                 // Circular Timer

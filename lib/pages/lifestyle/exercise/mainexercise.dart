@@ -15,7 +15,8 @@ class _MainexerciseState extends State<Mainexercise> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
+        child:  Container(
         padding: const EdgeInsets.only(top: 80, right: 20, left: 20),
         child: Column(
           children: [
@@ -232,6 +233,7 @@ class _MainexerciseState extends State<Mainexercise> {
             
           ],
         ),
+      ),
       ),
     );
   }

@@ -1,6 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resqheart/main.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 import 'package:resqheart/pages/heartrate/highRate.dart';
 import 'package:resqheart/pages/heartrate/lowRate.dart';
 import 'package:resqheart/pages/home.dart';
@@ -16,6 +18,17 @@ class Lowhearthome extends StatefulWidget {
 }
 
 class _LowHeartHomeState extends State<Lowhearthome> {
+
+  int _selectedIndex = 2; // ✅ Set to 2 to highlight the Heart tab
+
+  // ✅ Move _pages list here (class-level)
+  final List<Widget> _pages = [
+    Bottomnav(initialIndex: 0,),
+    Bottomnav(initialIndex: 1,),
+    Bottomnav(initialIndex: 2,), // Main Heart Rate Page
+    Bottomnav(initialIndex: 3,),
+    Bottomnav(initialIndex: 4,),
+  ];
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -88,7 +101,7 @@ class _LowHeartHomeState extends State<Lowhearthome> {
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color.fromARGB(233, 241, 70, 70),
+                        color: Color.fromARGB(233, 255, 164, 27),
                       ),
                       child: Column(
                         children: [
@@ -358,6 +371,34 @@ class _LowHeartHomeState extends State<Lowhearthome> {
           ),
         ),
       ),
+        // ✅ Bottom Navigation Bar with ALL Icons
+    bottomNavigationBar: CurvedNavigationBar(
+        index: _selectedIndex, // 👈 Highlights the Heart icon
+        height: 65,
+        backgroundColor: Colors.white,
+        color: Colors.black,
+        animationDuration: Duration(milliseconds: 500),
+        onTap: (int index) {
+          if (index != _selectedIndex) {
+            // ✅ Prevents unnecessary reload when tapping the same tab
+            setState(() {
+              _selectedIndex = index;
+            });
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => _pages[index]), // ✅ Fixed: _pages is now accessible
+            );
+          }
+        },
+        items: [
+          Icon(Icons.home_outlined, color: Colors.white),
+          Icon(Icons.public, color: Colors.white),
+          Icon(Icons.favorite, color: Colors.white), // ❤️ Heart tab
+          Icon(Icons.call, color: Colors.white),
+          Icon(Icons.self_improvement, color: Colors.white),
+        ],
+      ),
     );
   }
 }
+    

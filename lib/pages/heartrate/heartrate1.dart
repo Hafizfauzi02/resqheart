@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resqheart/main.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 import 'package:resqheart/pages/home.dart';
 import 'package:resqheart/pages/details/details1.dart';
 import 'package:resqheart/pages/heartrate/heartrate3.dart';
@@ -63,7 +64,7 @@ class _HeartrateState extends State<Heartrate> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Heart Rate',
+                            'Resting Heart Rate',
                             style: GoogleFonts.montserrat(
                                 fontSize: 18, fontWeight: FontWeight.w600),
                           ),
@@ -86,7 +87,7 @@ class _HeartrateState extends State<Heartrate> {
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color.fromARGB(233, 241, 70, 70),
+                        color: Color.fromARGB(233, 65, 182, 44),
                       ),
                       child: Column(
                         children: [
@@ -208,7 +209,7 @@ class _HeartrateState extends State<Heartrate> {
                                       height: 80,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        border: Border.all(color: Colors.blue, width: 6),
+                                        border: Border.all(color: Colors.green, width: 6),
                                         color: Colors.white,
                                       ),
                                       child: Center(
@@ -374,6 +375,7 @@ class _HeartrateState extends State<Heartrate> {
           ),
         ),
       ),
+      
     );
   }
 }

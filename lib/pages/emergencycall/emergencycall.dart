@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Call extends StatefulWidget {
   const Call({super.key});
@@ -16,7 +17,8 @@ class _CallState extends State<Call> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Text("Emergency Contact", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+            Center(child: Text("Emergency Contact",style: GoogleFonts.kronaOne(fontSize: 20, color: Colors.black),
+        ),),
             SizedBox(height: 20,),
             Text(
               'In case of emergency, contact:',

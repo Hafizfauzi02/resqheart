@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 import 'package:resqheart/pages/heartrate/heartRate2.dart';
 import 'package:resqheart/pages/heartrate/heartrate1.dart';
 import 'package:resqheart/pages/heartrate/highHeartHome.dart';
@@ -94,8 +95,12 @@ class _HeartRate3State extends State<Heartrate3> {
           child: IconButton(
             icon: Icon(Icons.arrow_back_ios, size: screenWidth * 0.08),
             onPressed: () {
-              Navigator.pop(context);
-            },
+            // Navigate to Details1 page when button is clicked
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Bottomnav(initialIndex: 2,)), // Fixed here
+            );
+          },
           ),
         ),
       ),
@@ -259,7 +264,7 @@ class _HeartRate3State extends State<Heartrate3> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Heartrate()),
+                      MaterialPageRoute(builder: (context) => const Bottomnav(initialIndex: 2,)),
                     );
                   },
                   child: Text(

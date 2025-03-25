@@ -11,7 +11,8 @@ class _Meal3State extends State<Meal3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: SingleChildScrollView(
+      child: Column(
         children: [
           Stack(
             children: [
@@ -71,7 +72,7 @@ class _Meal3State extends State<Meal3> {
             ),
           ),
         ],
-      ),
+      ),),
     );
   }
   Widget _buildNutrientInfo(IconData icon, String label) {
