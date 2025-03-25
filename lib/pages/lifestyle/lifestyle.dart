@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:resqheart/pages/lifestyle/exercise/mainexercise.dart';
 import 'package:resqheart/pages/lifestyle/food/mainfood.dart';
 import 'package:resqheart/pages/lifestyle/insights/maininsight.dart';
@@ -20,7 +21,7 @@ class _LifestyleState extends State<Lifestyle> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(child: Text("Lifestyle Management", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+            Center(child: Text("Lifestyle Management", style: GoogleFonts.kronaOne(fontSize: 20, color: Colors.black)),),
             SizedBox(height: 20,),
             Padding(
         padding: const EdgeInsets.all(16.0),
