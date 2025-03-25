@@ -26,7 +26,5 @@ Unlike existing heart health apps, ResQHeart provides:
 | 🏃 **Lifestyle Management** | Offers **personalized activity and nutrition recommendations**. |
 
 ---
-
-📺 **Watch the Demo Video:** [Click Here]("")
 📺 **Slide Presentation:** [Click Here](https://www.canva.com/design/DAGiiHP5W0g/okMKSFFL_2sSAkrTbB2TFQ/edit)
-📺 **Video Product Pitching:** [Click Here]("")
+📺 **Video Product Pitching:** [Click Here](https://youtu.be/10NHqE27LIE?si=5HtZVjr8gbp_3Mw4)
