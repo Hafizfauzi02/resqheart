@@ -88,7 +88,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               },
             ),
             Image.asset(
-              "assets/chatbot_icon.png", // Ensure this asset exists
+              "assets/chatbot_icon.png", 
               height: 24,
             ),
             SizedBox(width: 10),
