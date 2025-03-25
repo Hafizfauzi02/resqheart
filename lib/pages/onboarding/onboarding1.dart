@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:resqheart/pages/authentication/login.dart';
 
-// 🔹 Splash Screen (Shows for 2 Seconds)
+// Logo
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    // Make status bar transparent
+   
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
 
-    // Navigate to FeatureIntroScreen after 2 seconds
+    // Navigate to Feature Intro
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
@@ -45,12 +45,12 @@ class _SplashScreenState extends State<SplashScreen> {
               Colors.white,
               Colors.pink.shade50,
               Colors.pink.shade100,
-            ], // ✅ Same background as onboarding
+            ], 
           ),
         ),
         child: Center(
           child: Icon(
-            Icons.favorite, // ✅ Same logo as in "LET'S START" page
+            Icons.favorite,
             color: Colors.pinkAccent,
             size: 120,
           ),
@@ -60,12 +60,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-// 🔹 Feature Introduction Screens (PageView)
+// Feature Intro
 class FeatureIntroScreen extends StatefulWidget {
   final int initialPage;
   FeatureIntroScreen({
     this.initialPage = 0,
-  }); // Default to first page if not specified
+  }); 
 
   @override
   _FeatureIntroScreenState createState() => _FeatureIntroScreenState();
@@ -132,7 +132,7 @@ class _FeatureIntroScreenState extends State<FeatureIntroScreen> {
               ),
             ),
 
-            // Pagination Dots & Navigation Buttons
+            // Pagination Button
             Padding(
               padding: const EdgeInsets.only(bottom: 40),
               child: Row(
@@ -151,7 +151,7 @@ class _FeatureIntroScreenState extends State<FeatureIntroScreen> {
                     child: Text("SKIP", style: TextStyle(color: Colors.grey)),
                   ),
 
-                  // Dots Indicator
+                
                   Row(
                     children: List.generate(
                       featurePages.length,
@@ -207,7 +207,7 @@ class _FeatureIntroScreenState extends State<FeatureIntroScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(imagePath, height: 300, width: 300), // Increased image size
+        Image.asset(imagePath, height: 300, width: 300), 
         SizedBox(height: 40),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
@@ -226,7 +226,7 @@ class _FeatureIntroScreenState extends State<FeatureIntroScreen> {
   }
 }
 
-// 🔹 "Let's Start" Page
+
 class LetsStartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -242,13 +242,13 @@ class LetsStartScreen extends StatelessWidget {
               Colors.white,
               Colors.pink.shade50,
               Colors.pink.shade100,
-            ], // Same as FeatureIntroScreen
+            ], 
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Back Arrow at Top Left
+            
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
@@ -262,7 +262,7 @@ class LetsStartScreen extends StatelessWidget {
                         builder:
                             (context) => FeatureIntroScreen(
                               initialPage: 2,
-                            ), // Back to last feature page
+                            ), 
                       ),
                     );
                   },
@@ -272,12 +272,12 @@ class LetsStartScreen extends StatelessWidget {
 
             Spacer(),
 
-            // Big Pink Heart
+            
             Icon(Icons.favorite, color: Colors.pinkAccent, size: 120),
 
             SizedBox(height: 20),
 
-            // Title: "RESQHEART"
+            
             Text(
               "RESQHEART",
               style: TextStyle(
@@ -289,7 +289,7 @@ class LetsStartScreen extends StatelessWidget {
 
             SizedBox(height: 10),
 
-            // Description
+           
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Text(
@@ -301,7 +301,7 @@ class LetsStartScreen extends StatelessWidget {
 
             Spacer(),
 
-            // "LET'S START" Button
+
             Padding(
               padding: EdgeInsets.only(bottom: 40),
               child: ElevatedButton(
@@ -314,6 +314,7 @@ class LetsStartScreen extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
+
                 },
                 child: Text(
                   "LET'S START",

@@ -166,7 +166,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
     );
   }
 
-  // Post Card Widget
+  
   Widget _buildPostCard(
     int postId,
     String name,
@@ -254,7 +254,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
     );
   }
 
-  // Comment Dialog
+ // Comment
   void _showCommentDialog(int postId) {
     showModalBottomSheet(
       context: context,

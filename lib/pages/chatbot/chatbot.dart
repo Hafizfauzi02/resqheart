@@ -8,13 +8,13 @@ class ChatbotScreen extends StatefulWidget {
 class _ChatbotScreenState extends State<ChatbotScreen> {
   List<Map<String, dynamic>> messages = [];
   TextEditingController messageController = TextEditingController();
-  bool showInitialUI = true; // Controls greeting and suggestion buttons
+  bool showInitialUI = true; 
 
   void sendMessage(String message) {
     if (message.isEmpty) return;
 
     setState(() {
-      if (showInitialUI) showInitialUI = false; // Remove greeting UI
+      if (showInitialUI) showInitialUI = false; 
       messages.add({"text": message, "isUser": true});
     });
 
@@ -27,8 +27,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   }
 
   void botResponse() {
-    if (!mounted) return; // Ensure widget is still active before updating UI
-
+    if (!mounted) return; 
     setState(() {
       messages.add({
         "text":
@@ -83,7 +82,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           children: [
             
             Image.asset(
-              "assets/chatbot_icon.png", // Ensure this asset exists
+              "assets/chatbot_icon.png", 
               height: 24,
             ),
             SizedBox(width: 10),
