@@ -1,16 +1,32 @@
-# resqheart
+# 🩺 ResQHeart - Heart Tracking & Monitoring App ❤️
 
-A new Flutter project.
+---
 
-## Getting Started
+## 🎯 **Project Overview**
+**ResQHeart** is an **AI-powered heart health assistant** designed to help individuals **monitor, predict, and manage** heart-related diseases through **AI analytics, real-time alerts, and personalized recommendations**.  
 
-This project is a starting point for a Flutter application.
+🔹 **Why ResQHeart?**  
+Unlike existing heart health apps, ResQHeart provides:  
+✅ **AI-Powered Risk Prediction** – Detects early signs of heart disease before symptoms appear.  
+✅ **Multi-Mode Heart Monitoring** – Uses **finger, face, and device-based** tracking.  
+✅ **AI Chatbot for Health Guidance** – Provides instant support on heart health, medications, and lifestyle.  
+✅ **Emergency AI Alerts** – Detects abnormal heart conditions and notifies caregivers/medical professionals.  
+✅ **Community Support** – Connects users for shared experiences and guidance.  
+✅ **Lifestyle Management** – Personalized activity and nutrition recommendations.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📲 **Key Features**
+| Feature | Description |
+|---------|------------|
+| 🔍 **Heart Health Monitoring & AI Analytics** | Tracks heart rate using **finger, face, and device-based monitoring**. |
+| 🤖 **Chatbot for Health Management** | Provides **instant guidance** on heart health, medication, and lifestyle choices. |
+| 🏥 **Community Engagement** | Connects users for **support and shared experiences**. |
+| 🚨 **Emergency Response & AI Alerts** | Detects abnormal heart conditions and alerts caregivers/medical professionals. |
+| 🏃 **Lifestyle Management** | Offers **personalized activity and nutrition recommendations**. |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+📺 **Watch the Demo Video:** [Click Here]("")
+📺 **Slide Presentation:** [Click Here](https://www.canva.com/design/DAGiiHP5W0g/okMKSFFL_2sSAkrTbB2TFQ/edit)
+📺 **Video Product Pitching:** [Click Here]("")

@@ -34,10 +34,7 @@ class _HeartrateState2 extends State<Heartrate2> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
          onPressed: () {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => Heartrate()), // Navigate to Heartrate1
-    );
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> Heartrate()));
   },
 ),
         title: Text(

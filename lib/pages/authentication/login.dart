@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resqheart/pages/authentication/signup.dart';
+import 'package:resqheart/pages/bottomnav.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -24,7 +25,7 @@ class _LoginState extends State<Login> {
               SizedBox(height: 10,),
               Center(
                 child: Text(
-                  "Heart Rate App",
+                  "ResQHeart",
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -72,6 +73,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Bottomnav()));
                   },
                   child: const Text(
                     "Login",

@@ -65,18 +65,8 @@ flutter:
 
   
   assets:
-     - assets/hafiz.png
-     - assets/tracking icon.png
-     - assets/emergency_icon.png
-     - assets/chatbot_icon.png
-      - assets/face_scan.jpg
-      - assets/heart.jpeg
-      - assets/Rectangle 2.png
-      - assets/frequency.png
-      - assets/Rectangle 495.png
-      - assets/Vector.png
-      - assets/heartRate.jpg
-      - assets/graph.png
+      - assets/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
